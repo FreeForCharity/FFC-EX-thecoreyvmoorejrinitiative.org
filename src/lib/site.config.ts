@@ -74,9 +74,17 @@ export type SiteConfig = {
   foundingDate?: string
   /**
    * schema.org nonprofit status URL, e.g. 'https://schema.org/Nonprofit501c3'.
-   * FFC-supported sites are 501(c)(3) organizations; omit to skip it.
+   * FFC-supported sites are 501(c)(3) organizations; omit to skip it. Omit for
+   * a pre-501(c)(3) org — do not assert 501(c)(3) status that isn't granted.
    */
   nonprofitStatus?: string
+  /**
+   * Human-readable legal/tax status shown in the footer copyright line
+   * (e.g. 'a US 501(c)(3) nonprofit' or 'a US pre-501(c)(3) nonprofit'). Falls
+   * back to '501(c)(3)' wording if omitted, so set it for pre-501(c)(3) orgs to
+   * avoid overstating status.
+   */
+  taxStatusLabel?: string
   /**
    * Other names the organization is known by (brands, abbreviations).
    * Emitted as schema.org `alternateName`. Omit to skip it.
@@ -152,6 +160,7 @@ export const siteConfig: SiteConfig = {
   ],
   ein: '42-2922878',
   foundingDate: '2026',
+  taxStatusLabel: 'a US pre-501(c)(3) nonprofit',
   alternateNames: ['The Corey V Moore Jr Initiative for Fentanyl Awareness Inc.'],
   phone: { display: '(656) 233-4338', tel: '6562334338' },
   addresses: [],
