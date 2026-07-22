@@ -93,13 +93,12 @@ describe('Footer component', () => {
     expect(hubLink).toHaveAttribute('href', siteConfig.supportedBy.hubUrl)
   })
 
-  it('keeps the FFC donation policy label hardcoded (not siteConfig.name-branded)', () => {
+  it('links the charity donation policy', () => {
     render(<Footer />)
-    // This page documents FFC's own donation policy, so its label must not
-    // pick up a fork's rebranded siteConfig.name.
-    const ffcPolicyLink = screen.getByText('Free For Charity Donation Policy').closest('a')
-    expect(ffcPolicyLink).toHaveAttribute('href', '/free-for-charity-donation-policy')
-    // The charity's own donation policy remains a separate entry.
+    // The redundant standalone "Free For Charity Donation Policy" route was
+    // removed in the order-793 rebrand; the charity's own /donation-policy
+    // (which explains the FFC fiscal-sponsorship donation flow) is the single
+    // donation policy, and FFC attribution lives in the footer credit.
     const ownPolicyLink = screen.getByText('Donation Policy').closest('a')
     expect(ownPolicyLink).toHaveAttribute('href', '/donation-policy')
   })

@@ -113,14 +113,6 @@ const Footer: React.FC = () => {
               <ul className="space-y-1 text-sm lato-font">
                 {[
                   {
-                    // Hardcoded on purpose: this page documents FFC's OWN
-                    // donation policy, so the label must keep FFC's name even
-                    // after a fork rebrands siteConfig.name. The adjacent
-                    // '/donation-policy' entry is the charity's own policy.
-                    name: 'Free For Charity Donation Policy',
-                    href: '/free-for-charity-donation-policy',
-                  },
-                  {
                     name: 'Donation Policy',
                     href: '/donation-policy',
                   },

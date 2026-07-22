@@ -305,7 +305,7 @@ export default function PrivacyPolicy() {
             </li>
           </ul>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            To exercise these rights, please contact us at 520-222-8104.
+            To exercise these rights, please contact us at 656-233-4338.
           </p>
 
           {/* Section 8 */}
@@ -421,7 +421,7 @@ export default function PrivacyPolicy() {
               >
                 info@thecoreyvmoorejrinitiative.org
               </a>{' '}
-              520-222-8104
+              656-233-4338
             </li>
           </ul>
 
@@ -446,7 +446,7 @@ export default function PrivacyPolicy() {
               >
                 info@thecoreyvmoorejrinitiative.org
               </a>{' '}
-              520-222-8104
+              656-233-4338
             </li>
           </ul>
 

@@ -65,7 +65,7 @@ export type SiteConfig = {
   vulnerabilityDisclosurePath: string
   /** Social links displayed in the footer. */
   social: readonly SiteSocialLink[]
-  /** IRS Employer Identification Number (tax ID), e.g. '46-2471893'. */
+  /** IRS Employer Identification Number (tax ID), e.g. '12-3456789'. */
   ein: string
   /**
    * Year (or ISO date) the organization was founded, e.g. '2014'.
@@ -150,15 +150,14 @@ export const siteConfig: SiteConfig = {
       href: 'https://github.com/FreeForCharity/FFC-EX-thecoreyvmoorejrinitiative.org',
     },
   ],
-  ein: '46-2471893',
+  ein: '42-2922878',
   foundingDate: '2026',
   alternateNames: ['The Corey V Moore Jr Initiative for Fentanyl Awareness Inc.'],
-  phone: { display: '(520) 222-8104', tel: '5202228104' },
+  phone: { display: '(656) 233-4338', tel: '6562334338' },
   addresses: [],
   guidestar: {
-    profileUrl: 'https://www.guidestar.org/profile/46-2471893',
-    directProfileUrl:
-      'https://www.guidestar.org/profile/shared/bbbe173a-87b9-4af9-a8a2-cae255a95742',
+    profileUrl: 'https://www.guidestar.org/profile/42-2922878',
+    directProfileUrl: 'https://www.guidestar.org/profile/42-2922878',
   },
   supportedBy: {
     name: 'Free For Charity',

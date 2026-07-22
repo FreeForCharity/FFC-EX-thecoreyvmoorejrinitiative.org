@@ -260,7 +260,7 @@ export default function TermsOfService() {
             </a>
           </p>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            Phone: 520-222-8104
+            Phone: 656-233-4338
           </p>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
             Thank you for supporting The Corey V. Moore Jr. Initiative for Fentanyl Awareness and

@@ -34,10 +34,10 @@ export default function DonationPolicy() {
           <p>
             The Corey V. Moore Jr. Initiative for Fentanyl Awareness Inc. is a pre-501(c)(3)
             nonprofit working toward its federal tax-exempt designation. While that application is
-            in progress, donations made through this site are processed by Free For Charity, a
-            qualified 501(c)(3) nonprofit organization, through its endowment program. Consult your
-            tax advisor about the deductibility of your donation, and see the Free For Charity
-            Donation Policy linked in the footer for how those funds are administered.
+            in progress, donations made through this site are processed by our fiscal sponsor — a
+            qualified 501(c)(3) nonprofit organization named in the &ldquo;Supported by&rdquo;
+            credit in the footer — through its endowment program. Consult your tax advisor about the
+            deductibility of your donation.
           </p>
 
           <h2 className="font-[var(--font-faustina)] text-[32px] leading-[40px] mt-8 mb-4">
@@ -85,7 +85,7 @@ export default function DonationPolicy() {
               info@thecoreyvmoorejrinitiative.org
             </a>
             <br />
-            Phone: (520) 222-8104
+            Phone: (656) 233-4338
           </p>
         </div>
       </div>
