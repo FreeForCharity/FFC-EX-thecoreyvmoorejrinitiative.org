@@ -86,6 +86,9 @@ const ApplicationFormButton: React.FC<ApplicationFormButtonProps> = ({
     }
   }, [isOpen])
 
+  // No form URL configured (and none passed in) — render nothing.
+  if (!microsoftFormUrl) return null
+
   return (
     <>
       <button

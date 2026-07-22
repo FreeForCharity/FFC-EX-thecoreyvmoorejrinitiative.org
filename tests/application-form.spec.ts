@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test'
 import { testConfig } from './test.config'
 
+// SKIPPED — This site has no Microsoft application form (the FFC 'Apply to Become a Supported Charity' modal was removed in the order-793 rebrand).
+
 /**
  * Application Form Button Tests
  *
@@ -16,7 +18,7 @@ import { testConfig } from './test.config'
  * Note: Test expectations use values from test.config.ts for easy customization
  */
 
-test.describe('Application Form Button', () => {
+test.describe.skip('Application Form Button', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/')
     // Wait for page to be loaded
@@ -245,7 +247,7 @@ test.describe('Application Form Button', () => {
   })
 })
 
-test.describe('Application Form Iframe Loading', () => {
+test.describe.skip('Application Form Iframe Loading', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/')
     await page.waitForLoadState('domcontentloaded')

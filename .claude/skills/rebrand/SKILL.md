@@ -128,7 +128,7 @@ Keep brand-neutral, reusable UI primitives (cards, buttons) even if unused.
 
 The rebrand is not done when the app is clean; a fork also inherits a pile of
 Markdown and config that still names the template's placeholder domain
-(`ffcworkingsite1.org`) and, in functional metadata, points at the template repo.
+(`thecoreyvmoorejrinitiative.org`) and, in functional metadata, points at the template repo.
 Do a **repo-wide** sweep:
 
 ```

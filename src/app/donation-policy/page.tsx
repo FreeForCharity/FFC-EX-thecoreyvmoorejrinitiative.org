@@ -9,7 +9,8 @@ const CANONICAL_PATH = '/donation-policy'
 // per-page OG/Twitter handling is documented in src/lib/page-metadata.ts.
 export const metadata: Metadata = pageMetadata({
   title: PAGE_NAME,
-  description: 'Donation Policy for Free For Charity website',
+  description:
+    'Donation Policy for The Corey V. Moore Jr. Initiative for Fentanyl Awareness website',
   canonical: CANONICAL_PATH,
 })
 
@@ -31,21 +32,22 @@ export default function DonationPolicy() {
             Tax Deductibility
           </h2>
           <p>
-            Free For Charity is a qualified 501(c)(3) nonprofit organization (EIN: 46-2471893).
-            Donations are tax-deductible to the full extent allowed by law.
+            The Corey V. Moore Jr. Initiative for Fentanyl Awareness Inc. is a pre-501(c)(3)
+            nonprofit working toward its federal tax-exempt designation. While that application is
+            in progress, donations made through this site are processed by our fiscal sponsor — a
+            qualified 501(c)(3) nonprofit organization named in the &ldquo;Supported by&rdquo;
+            credit in the footer — through its endowment program. Consult your tax advisor about the
+            deductibility of your donation.
           </p>
 
           <h2 className="font-[var(--font-faustina)] text-[32px] leading-[40px] mt-8 mb-4">
             Use of Donations
           </h2>
-          <p>
-            Donations support our mission to reduce costs and increase revenues for nonprofits by
-            providing:
-          </p>
+          <p>Donations support our mission to transform grief into action by providing:</p>
           <ul>
-            <li>Free domain registration and hosting services</li>
-            <li>Technology consultation and support</li>
-            <li>Volunteer coordination and training</li>
+            <li>School presentations on the dangers of fentanyl</li>
+            <li>Distribution of life-saving resources in our community</li>
+            <li>Support networks for families impacted by the opioid crisis</li>
             <li>Administrative costs necessary to operate our programs</li>
           </ul>
 
@@ -79,11 +81,11 @@ export default function DonationPolicy() {
           <p>For questions about donations or this policy, please contact us at:</p>
           <p>
             Email:{' '}
-            <a href="mailto:clarkemoyer@freeforcharity.org" className="text-primary underline">
-              clarkemoyer@freeforcharity.org
+            <a href="mailto:info@thecoreyvmoorejrinitiative.org" className="text-primary underline">
+              info@thecoreyvmoorejrinitiative.org
             </a>
             <br />
-            Phone: (520) 222-8104
+            Phone: (656) 233-4338
           </p>
         </div>
       </div>

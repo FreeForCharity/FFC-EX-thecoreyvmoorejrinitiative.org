@@ -2,6 +2,8 @@ import React from 'react'
 import { siteConfig } from '@/lib/site.config'
 
 const Events = () => {
+  // No events widget configured for this site yet — render nothing.
+  if (!siteConfig.integrations.sociableKitEventsWidgetUrl) return null
   return (
     <div id="events" className="py-[52px]">
       <div className="w-[90%] mx-auto max-w-[1280px]">
