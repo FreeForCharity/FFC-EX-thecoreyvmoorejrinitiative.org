@@ -15,7 +15,11 @@ export const analyticsConfig = {
   gtmId: 'GTM-N6MWB4DZ',
 
   // Google Analytics 4 measurement ID, e.g. 'G-ABC1234567'.
-  gaMeasurementId: 'G-W8ESSNGPN7',
+  // Intentionally left as a placeholder: this charity's GA4 property
+  // (G-W8ESSNGPN7) is fired by the GTM container above (seeded on All Pages),
+  // so setting it here too would load gtag.js directly AND via GTM — double-
+  // counting pageviews. Leave inert unless you remove the GA4 tag from GTM.
+  gaMeasurementId: 'G-XXXXXXXXXX',
 
   // Meta (Facebook) Pixel ID.
   metaPixelId: 'XXXXXXXXXXXXXXX',
