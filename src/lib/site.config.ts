@@ -80,9 +80,10 @@ export type SiteConfig = {
   nonprofitStatus?: string
   /**
    * Human-readable legal/tax status shown in the footer copyright line
-   * (e.g. 'a US 501(c)(3) nonprofit' or 'a US pre-501(c)(3) nonprofit'). Falls
-   * back to '501(c)(3)' wording if omitted, so set it for pre-501(c)(3) orgs to
-   * avoid overstating status.
+   * (e.g. 'a US 501(c)(3) nonprofit' or 'a US pre-501(c)(3) nonprofit'). When
+   * omitted the footer falls back to the original 'a US 501c3 Non Profit' copy
+   * (behavior-preserving), so set it for pre-501(c)(3) orgs to avoid
+   * overstating status.
    */
   taxStatusLabel?: string
   /**
