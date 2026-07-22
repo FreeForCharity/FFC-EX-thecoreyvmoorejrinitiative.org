@@ -9,7 +9,10 @@ describe('Hero', () => {
     // nodes inside the same <h1>. Match the whole heading by accessible name
     // and let RTL collapse whitespace.
     expect(
-      screen.getByRole('heading', { level: 1, name: /Welcome to\s+Free For Charity/i })
+      screen.getByRole('heading', {
+        level: 1,
+        name: /Welcome to\s+The Corey V\. Moore Jr\. Initiative for Fentanyl Awareness/i,
+      })
     ).toBeInTheDocument()
   })
 

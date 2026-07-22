@@ -1,5 +1,5 @@
 /**
- * Central site configuration for Free For Charity template sites.
+ * Central site configuration for this FFC-supported nonprofit site.
  *
  * EDIT THIS FILE to customize a new FFC-supported nonprofit site.
  * Most values that vary between sites flow from here so individual
@@ -124,50 +124,37 @@ export type SiteConfig = {
 }
 
 export const siteConfig: SiteConfig = {
-  name: 'Free For Charity',
-  tagline: 'Reduce Costs, Increase Impact',
+  name: 'The Corey V. Moore Jr. Initiative for Fentanyl Awareness',
+  tagline: 'Educating to protect. Empowering to save. In memory of Corey V. Moore Jr.',
   description:
-    'Free For Charity connects students, professionals, and businesses with nonprofits to reduce costs and increase revenues—putting more resources back into their missions.',
+    'The Corey V. Moore Jr. Initiative for Fentanyl Awareness Inc. protects youth through school presentations and life-saving resource distribution. Join our mission.',
   shortDescription:
-    'Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.',
-  url: 'https://ffcworkingsite1.org',
-  twitterHandle: '@freeforcharity',
-  contactEmail: 'security@freeforcharity.org',
+    'The Corey V. Moore Jr. Initiative for Fentanyl Awareness protects youth through school presentations and life-saving resource distribution.',
+  url: 'https://thecoreyvmoorejrinitiative.org',
+  twitterHandle: '',
+  contactEmail: 'info@thecoreyvmoorejrinitiative.org',
   keywords: [
+    'fentanyl awareness',
+    'opioid crisis support',
+    'youth education',
+    'naloxone',
+    'community safety',
     'nonprofit',
     'charity',
-    'volunteer',
-    'donate',
-    'free hosting',
-    'domains',
-    'Microsoft 365',
   ],
-  themeColor: '#ffffff',
+  themeColor: '#0567B1',
   vulnerabilityDisclosurePath: '/vulnerability-disclosure-policy',
   social: [
-    { label: 'Facebook', href: 'https://www.facebook.com/freeforcharity' },
-    { label: 'X (Twitter)', href: 'https://x.com/freeforcharity1' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/freeforcharity/' },
-    { label: 'GitHub', href: 'https://github.com/FreeForCharity/FFC_Single_Page_Template' },
+    {
+      label: 'GitHub',
+      href: 'https://github.com/FreeForCharity/FFC-EX-thecoreyvmoorejrinitiative.org',
+    },
   ],
   ein: '46-2471893',
-  foundingDate: '2014',
-  nonprofitStatus: 'https://schema.org/Nonprofit501c3',
+  foundingDate: '2026',
+  alternateNames: ['The Corey V Moore Jr Initiative for Fentanyl Awareness Inc.'],
   phone: { display: '(520) 222-8104', tel: '5202228104' },
-  addresses: [
-    {
-      label: 'Main Address',
-      lines: ['4030 Wake Forrest Road', 'Suite 349', 'Raleigh, NC 27609'],
-      mapUrl:
-        'https://www.google.com/maps/search/?api=1&query=4030+Wake+Forrest+Road+Suite+349+Raleigh+NC+27609',
-    },
-    {
-      label: 'PA Office Address',
-      lines: ['301 Science Park Road, Suite 119', 'State College, PA 16803'],
-      mapUrl:
-        'https://www.google.com/maps/place/Free+For+Charity/@40.7768455,-77.8963305,17z/data=!3m1!4b1!4m6!3m5!1s0x89cea944b44a2e01:0x6fc2d6bf09e00a0f!8m2!3d40.7768415!4d-77.8937556!16s%2Fg%2F11vzvbl2d7?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D',
-    },
-  ],
+  addresses: [],
   guidestar: {
     profileUrl: 'https://www.guidestar.org/profile/46-2471893',
     directProfileUrl:
@@ -178,18 +165,11 @@ export const siteConfig: SiteConfig = {
     url: 'https://freeforcharity.org',
     hubUrl: 'https://freeforcharity.org/hub/',
   },
-  parentOrg: {
-    name: 'Free For Charity',
-    url: 'https://freeforcharity.org',
-    hubUrl: 'https://freeforcharity.org/hub/',
-  },
   integrations: {
     zeffyDonationUrl: 'https://www.zeffy.com/embed/donation-form/free-for-charity-endowment-fund',
-    idealistUrl:
-      'https://www.idealist.org/en/nonprofit/356bfc8e2ae64f83beea4a4e677e99d7-free-for-charity-state-college#opportunities',
-    sociableKitEventsWidgetUrl:
-      'https://widgets.sociablekit.com/facebook-page-events/iframe/25631700',
-    microsoftFormUrl: 'https://forms.office.com/r/vePxGq6JqG',
+    idealistUrl: '',
+    sociableKitEventsWidgetUrl: '',
+    microsoftFormUrl: '',
   },
 }
 

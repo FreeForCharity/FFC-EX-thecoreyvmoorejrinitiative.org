@@ -6,6 +6,9 @@ import { pageMetadata } from '@/lib/page-metadata'
 const PAGE_NAME = 'Free For Charity Donation Policy'
 const CANONICAL_PATH = '/free-for-charity-donation-policy'
 
+// This page documents Free For Charity's OWN donation policy (this site's
+// donations are processed through FFC as fiscal sponsor), so the organization
+// name throughout is intentionally "Free For Charity" — do not rebrand it.
 // Bare page name as title (the root layout template appends the brand);
 // per-page OG/Twitter handling is documented in src/lib/page-metadata.ts.
 export const metadata: Metadata = pageMetadata({
