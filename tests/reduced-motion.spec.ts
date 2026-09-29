@@ -15,7 +15,10 @@ import { test, expect } from '@playwright/test'
  */
 
 test.describe('prefers-reduced-motion', () => {
-  test('Results-2023 stat numbers settle without a multi-frame animation', async ({ page }) => {
+  // The Results-2023 section is Free For Charity's own 2023 results and is not rendered on this charity's site.
+  test.skip('Results-2023 stat numbers settle without a multi-frame animation', async ({
+    page,
+  }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' })
     await page.goto('/')
 

@@ -1,13 +1,12 @@
 // Team member data
 // This file imports team member data from JSON files in ./team/ directory
-// To edit team members, edit the JSON files directly in src/data/team/.
+// To edit team members, add JSON files in src/data/team/ and import them here.
 // Each member needs: name, title, imageUrl (a /Images/* path), linkedinUrl.
-
-import clarkeMoyer from './team/clarke-moyer.json'
-import chrisRae from './team/chris-rae.json'
-import tylerCarlotto from './team/tyler-carlotto.json'
-import brennanDarling from './team/brennan-darling.json'
-import rebeccaCook from './team/rebecca-cook.json'
+//
+// No leadership has been supplied by the charity yet, so the team is empty and
+// listed in `siteConfig.pending` (the Team section shows an "awaiting
+// information" placeholder). Never fill it with the template's sample members:
+// they are the supporting organization's own staff.
 
 export type TeamMember = {
   name: string
@@ -16,10 +15,11 @@ export type TeamMember = {
   linkedinUrl: string
 }
 
-export const team: TeamMember[] = [
-  clarkeMoyer,
-  chrisRae,
-  tylerCarlotto,
-  brennanDarling,
-  rebeccaCook,
-]
+export const team: TeamMember[] = []
+
+// `configuredTeam` is the subset with the required `name` populated — the Team
+// section and its Header/Footer nav links key visibility off this list (see
+// src/lib/section-visibility.ts) so they never render empty cards.
+export const configuredTeam: TeamMember[] = team.filter(
+  (member) => typeof member.name === 'string' && member.name.trim().length > 0
+)

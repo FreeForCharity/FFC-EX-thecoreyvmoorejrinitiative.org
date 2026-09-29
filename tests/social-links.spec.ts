@@ -33,6 +33,7 @@ test.describe('Footer Social Links', () => {
   })
 
   test('should render exactly the configured number of social icons', async ({ page }) => {
+    test.skip(configured.length === 0, 'No social links configured yet (pending)')
     await page.goto('/')
     const selector = configured.map((l) => `footer a[href="${l.href}"]`).join(', ')
     await expect(page.locator(selector)).toHaveCount(configured.length)

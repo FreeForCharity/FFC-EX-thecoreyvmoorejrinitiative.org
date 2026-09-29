@@ -1,5 +1,6 @@
 import { testimonials } from '@/data/testimonials'
 import { team } from '@/data/team'
+import { isPending } from '@/lib/site.config'
 import { faqs } from '@/data/faqs'
 import { results } from '@/data/results'
 
@@ -23,9 +24,10 @@ describe('data modules', () => {
   })
 
   describe('team', () => {
-    it('is a non-empty array', () => {
+    it('is a non-empty array, or empty while the team is pending', () => {
       expect(Array.isArray(team)).toBe(true)
-      expect(team.length).toBeGreaterThan(0)
+      if (isPending('team')) expect(team).toHaveLength(0)
+      else expect(team.length).toBeGreaterThan(0)
     })
     it('every member has name, title, an /Images/ photo, and an http(s) LinkedIn URL', () => {
       for (const m of team) {
