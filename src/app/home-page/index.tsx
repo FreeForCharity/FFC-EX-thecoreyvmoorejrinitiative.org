@@ -8,9 +8,8 @@ import FrequentlyAskedQuestions from '@/components/home-page/FrequentlyAskedQues
 import Events from '@/components/home-page/Events'
 
 // The template's Results-2023, Testimonials, Endowment-Features and
-// Our-Programs sections describe the supporting organization itself (its 2023 results,
-// testimonials about FFC, FFC's endowment and FFC's own programs), so they are
-// not rendered on this charity's site until it supplies its own content.
+// Our-Programs sections described the supporting organization itself, so they
+// were removed from this charity's site; add the charity's own content here.
 const index = () => {
   return (
     <div>
