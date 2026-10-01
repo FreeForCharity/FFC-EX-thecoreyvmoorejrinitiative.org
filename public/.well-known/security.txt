@@ -12,7 +12,7 @@
 # `.well-known/` (Cloudflare Pages, Netlify, plain nginx, etc.) serve both.
 # The drift checker enforces that /security.txt stays in sync with this file.
 
-Contact: mailto:info@thecoreyvmoorejrinitiative.org
+Contact: https://github.com/FreeForCharity/FFC-EX-thecoreyvmoorejrinitiative.org/security/advisories/new
 Expires: 2027-01-01T00:00:00.000Z
 Preferred-Languages: en
 Canonical: https://thecoreyvmoorejrinitiative.org/.well-known/security.txt

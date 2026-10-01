@@ -13,6 +13,6 @@ export const faqs: Faq[] = [
   },
   {
     question: 'How do donations work?',
-    answer: `Donations made through this site are currently processed through our fiscal sponsor's endowment program while our own tax-exempt status is pending. For questions about a donation or its tax treatment, please consult your accountant or tax advisor. Our fiscal sponsor is named in the "Supported by" credit in the footer of this site.`,
+    answer: `Our online donation page is still being set up. Until it is available, please reach out through the contact information in the footer of this site. We have not yet received IRS recognition as a 501(c)(3) organization, so donations may not be tax-deductible; please consult your accountant or tax advisor.`,
   },
 ]

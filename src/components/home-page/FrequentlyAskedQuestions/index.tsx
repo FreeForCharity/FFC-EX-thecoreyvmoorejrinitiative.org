@@ -38,11 +38,10 @@ const index = () => {
           </FrequentlyAskedQuestions>
           <FrequentlyAskedQuestions title="How do donations work?">
             <p>
-              Donations made through this site are currently processed through our fiscal
-              sponsor&apos;s endowment program while our own tax-exempt status is pending. For
-              questions about a donation or its tax treatment, please consult your accountant or tax
-              advisor. Our fiscal sponsor is named in the &ldquo;Supported by&rdquo; credit in the
-              footer.
+              Our online donation page is still being set up. Until it is available, please reach
+              out through the contact information in the footer of this site. We have not yet
+              received IRS recognition as a 501(c)(3) organization, so donations may not be
+              tax-deductible; please consult your accountant or tax advisor.
             </p>
           </FrequentlyAskedQuestions>
         </div>
