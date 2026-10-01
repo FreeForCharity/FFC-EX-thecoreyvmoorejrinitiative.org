@@ -1,5 +1,5 @@
 /**
- * Central site configuration for Free For Charity template sites.
+ * Central site configuration for this FFC-supported nonprofit site.
  *
  * EDIT THIS FILE to customize a new FFC-supported nonprofit site.
  * Most values that vary between sites flow from here so individual
@@ -24,6 +24,40 @@ export type SiteAddress = {
   /** Google Maps (or other) link opened when the address is clicked. */
   mapUrl: string
 }
+
+/**
+ * A footer-standard field the charity has not supplied yet. Listing a field in
+ * `siteConfig.pending` renders a visible "awaiting information" placeholder in
+ * its place (plain text, never a link), so a gap in the FFC footer standard is
+ * a call to action on the page rather than a silent omission. The field's own
+ * value must stay EMPTY while it is pending, so no placeholder or borrowed
+ * value (e.g. the template's supporting-organization details) can ship behind it.
+ *
+ * An empty value that is NOT listed here keeps its plain meaning: the charity
+ * has none (e.g. no public phone). `taxStatusLabel` is deliberately not a
+ * pending field: it is a legal claim, and '' means "make no claim".
+ *
+ * What "empty" means per field: `email` → `contactEmail`; `phone` → both
+ * `phone.display` and `phone.tel`; `address` → `addresses: []`; `ein` → `ein`;
+ * `guidestar` → both `guidestar` URLs; `social` → every `social[].href`;
+ * `team` → no member in src/data/team/*.json has a name; `donationUrl` →
+ * `integrations.zeffyDonationUrl`; `volunteerUrl` → `integrations.idealistUrl`.
+ * (Ported from FreeForCharity/FFC-IN-FFC_Single_Page_Template#483; this site
+ * keeps its donation / volunteer URLs under `integrations`.)
+ */
+export type PendingField =
+  | 'email'
+  | 'phone'
+  | 'address'
+  | 'ein'
+  | 'guidestar'
+  | 'social'
+  | 'team'
+  | 'donationUrl'
+  | 'volunteerUrl'
+
+/** Visible text shown in place of a pending field. */
+export const PENDING_TEXT = 'Awaiting information from the charity'
 
 export type SiteConfig = {
   /** Display name of the charity (used in titles, OG/Twitter cards). */
@@ -65,7 +99,7 @@ export type SiteConfig = {
   vulnerabilityDisclosurePath: string
   /** Social links displayed in the footer. */
   social: readonly SiteSocialLink[]
-  /** IRS Employer Identification Number (tax ID), e.g. '46-2471893'. */
+  /** IRS Employer Identification Number (tax ID), e.g. '12-3456789'. */
   ein: string
   /**
    * Year (or ISO date) the organization was founded, e.g. '2014'.
@@ -74,9 +108,18 @@ export type SiteConfig = {
   foundingDate?: string
   /**
    * schema.org nonprofit status URL, e.g. 'https://schema.org/Nonprofit501c3'.
-   * FFC-supported sites are 501(c)(3) organizations; omit to skip it.
+   * FFC-supported sites are 501(c)(3) organizations; omit to skip it. Omit for
+   * a pre-501(c)(3) org — do not assert 501(c)(3) status that isn't granted.
    */
   nonprofitStatus?: string
+  /**
+   * Human-readable legal/tax status shown in the footer copyright line
+   * (e.g. 'a US 501(c)(3) nonprofit' or 'a US pre-501(c)(3) nonprofit'). When
+   * omitted the footer falls back to the original 'a US 501c3 Non Profit' copy
+   * (behavior-preserving), so set it for pre-501(c)(3) orgs to avoid
+   * overstating status.
+   */
+  taxStatusLabel?: string
   /**
    * Other names the organization is known by (brands, abbreviations).
    * Emitted as schema.org `alternateName`. Omit to skip it.
@@ -107,6 +150,15 @@ export type SiteConfig = {
    */
   parentOrg?: { name: string; url: string; hubUrl: string }
   /**
+   * Footer-standard fields still awaiting the charity. Each listed field keeps
+   * an EMPTY value and renders a visible plain-text placeholder
+   * (`PENDING_TEXT`) in its slot, never a link. An empty value NOT listed here
+   * means "the charity has none". `taxStatusLabel` is deliberately not
+   * pending-able: it is a legal claim, so '' means "make no claim". See
+   * `PendingField`. Omit (or leave empty) when nothing is pending.
+   */
+  pending?: readonly PendingField[]
+  /**
    * Third-party integration endpoints. Each fork points these at its own
    * accounts — the domains are already allow-listed in the CSP, so only the
    * path/ID changes here.
@@ -124,73 +176,61 @@ export type SiteConfig = {
 }
 
 export const siteConfig: SiteConfig = {
-  name: 'Free For Charity',
-  tagline: 'Reduce Costs, Increase Impact',
+  name: 'The Corey V. Moore Jr. Initiative for Fentanyl Awareness',
+  tagline: 'Educating to protect. Empowering to save. In memory of Corey V. Moore Jr.',
   description:
-    'Free For Charity connects students, professionals, and businesses with nonprofits to reduce costs and increase revenues—putting more resources back into their missions.',
+    'The Corey V. Moore Jr. Initiative for Fentanyl Awareness Inc. protects youth through school presentations and life-saving resource distribution. Join our mission.',
   shortDescription:
-    'Connecting students, professionals, and businesses with nonprofits to reduce costs and increase revenues.',
-  url: 'https://ffcworkingsite1.org',
-  twitterHandle: '@freeforcharity',
-  contactEmail: 'security@freeforcharity.org',
+    'The Corey V. Moore Jr. Initiative for Fentanyl Awareness protects youth through school presentations and life-saving resource distribution.',
+  url: 'https://thecoreyvmoorejrinitiative.org',
+  twitterHandle: '',
+  contactEmail: '',
   keywords: [
+    'fentanyl awareness',
+    'opioid crisis support',
+    'youth education',
+    'naloxone',
+    'community safety',
     'nonprofit',
     'charity',
-    'volunteer',
-    'donate',
-    'free hosting',
-    'domains',
-    'Microsoft 365',
   ],
-  themeColor: '#ffffff',
+  themeColor: '#0567B1',
   vulnerabilityDisclosurePath: '/vulnerability-disclosure-policy',
-  social: [
-    { label: 'Facebook', href: 'https://www.facebook.com/freeforcharity' },
-    { label: 'X (Twitter)', href: 'https://x.com/freeforcharity1' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/freeforcharity/' },
-    { label: 'GitHub', href: 'https://github.com/FreeForCharity/FFC_Single_Page_Template' },
-  ],
-  ein: '46-2471893',
-  foundingDate: '2014',
-  nonprofitStatus: 'https://schema.org/Nonprofit501c3',
-  phone: { display: '(520) 222-8104', tel: '5202228104' },
-  addresses: [
-    {
-      label: 'Main Address',
-      lines: ['4030 Wake Forrest Road', 'Suite 349', 'Raleigh, NC 27609'],
-      mapUrl:
-        'https://www.google.com/maps/search/?api=1&query=4030+Wake+Forrest+Road+Suite+349+Raleigh+NC+27609',
-    },
-    {
-      label: 'PA Office Address',
-      lines: ['301 Science Park Road, Suite 119', 'State College, PA 16803'],
-      mapUrl:
-        'https://www.google.com/maps/place/Free+For+Charity/@40.7768455,-77.8963305,17z/data=!3m1!4b1!4m6!3m5!1s0x89cea944b44a2e01:0x6fc2d6bf09e00a0f!8m2!3d40.7768415!4d-77.8937556!16s%2Fg%2F11vzvbl2d7?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D',
-    },
-  ],
+  social: [],
+  ein: '42-2922878',
+  foundingDate: '2026',
+  // Pre-501(c)(3): make no tax-status claim in the footer.
+  taxStatusLabel: '',
+  alternateNames: ['The Corey V Moore Jr Initiative for Fentanyl Awareness Inc.'],
+  phone: { display: '', tel: '' },
+  addresses: [],
   guidestar: {
-    profileUrl: 'https://www.guidestar.org/profile/46-2471893',
-    directProfileUrl:
-      'https://www.guidestar.org/profile/shared/bbbe173a-87b9-4af9-a8a2-cae255a95742',
+    profileUrl: '',
+    directProfileUrl: '',
   },
   supportedBy: {
     name: 'Free For Charity',
     url: 'https://freeforcharity.org',
     hubUrl: 'https://freeforcharity.org/hub/',
   },
-  parentOrg: {
-    name: 'Free For Charity',
-    url: 'https://freeforcharity.org',
-    hubUrl: 'https://freeforcharity.org/hub/',
-  },
   integrations: {
-    zeffyDonationUrl: 'https://www.zeffy.com/embed/donation-form/free-for-charity-endowment-fund',
-    idealistUrl:
-      'https://www.idealist.org/en/nonprofit/356bfc8e2ae64f83beea4a4e677e99d7-free-for-charity-state-college#opportunities',
-    sociableKitEventsWidgetUrl:
-      'https://widgets.sociablekit.com/facebook-page-events/iframe/25631700',
-    microsoftFormUrl: 'https://forms.office.com/r/vePxGq6JqG',
+    zeffyDonationUrl: '',
+    idealistUrl: '',
+    sociableKitEventsWidgetUrl: '',
+    microsoftFormUrl: '',
   },
+  // Footer-standard fields still awaiting the charity; each renders a visible
+  // 'awaiting information' placeholder until it is filled in.
+  pending: [
+    'email',
+    'phone',
+    'address',
+    'guidestar',
+    'social',
+    'team',
+    'donationUrl',
+    'volunteerUrl',
+  ],
 }
 
 /**
@@ -225,4 +265,20 @@ export function twitterSite(): string | undefined {
 /** Returns the OG/Twitter card description, falling back to the longer page description. */
 export function cardDescription(): string {
   return siteConfig.shortDescription.trim() || siteConfig.description
+}
+
+/** True when `field` is listed in `siteConfig.pending`. */
+export function isPending(field: PendingField): boolean {
+  return siteConfig.pending?.includes(field) ?? false
+}
+
+/**
+ * The charity's published phone number (both `display` and `tel` set), or
+ * null. A pending or missing number is never shown as a dialable link.
+ */
+export function publishedPhone(): { display: string; tel: string } | null {
+  if (isPending('phone')) return null
+  const display = siteConfig.phone.display.trim()
+  const tel = siteConfig.phone.tel.trim()
+  return display && tel ? { display, tel } : null
 }

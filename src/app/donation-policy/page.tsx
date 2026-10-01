@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema'
 import { pageMetadata } from '@/lib/page-metadata'
+import { ContactEmail } from '@/components/ui/ContactDetails'
+import { PENDING_TEXT, isPending, publishedPhone, siteConfig } from '@/lib/site.config'
 
 const PAGE_NAME = 'Donation Policy'
 const CANONICAL_PATH = '/donation-policy'
@@ -9,11 +11,17 @@ const CANONICAL_PATH = '/donation-policy'
 // per-page OG/Twitter handling is documented in src/lib/page-metadata.ts.
 export const metadata: Metadata = pageMetadata({
   title: PAGE_NAME,
-  description: 'Donation Policy for Free For Charity website',
+  description:
+    'Donation Policy for The Corey V. Moore Jr. Initiative for Fentanyl Awareness website',
   canonical: CANONICAL_PATH,
 })
 
 export default function DonationPolicy() {
+  const phone = publishedPhone()
+  // The EIN clause: the EIN itself, the pending placeholder while the charity
+  // has not supplied it, or nothing when it has none (see PendingField).
+  const ein = siteConfig.ein.trim()
+  const einClause = isPending('ein') ? ` (EIN: ${PENDING_TEXT})` : ein ? ` (EIN: ${ein})` : ''
   return (
     <div className="ffc-container py-16">
       <BreadcrumbSchema name={PAGE_NAME} path={CANONICAL_PATH} />
@@ -31,21 +39,20 @@ export default function DonationPolicy() {
             Tax Deductibility
           </h2>
           <p>
-            Free For Charity is a qualified 501(c)(3) nonprofit organization (EIN: 46-2471893).
-            Donations are tax-deductible to the full extent allowed by law.
+            {siteConfig.name}
+            {einClause} has not yet received IRS recognition as a 501(c)(3) organization, so
+            donations may not be tax-deductible. Please consult a tax advisor before claiming a
+            deduction.
           </p>
 
           <h2 className="font-[var(--font-faustina)] text-[32px] leading-[40px] mt-8 mb-4">
             Use of Donations
           </h2>
-          <p>
-            Donations support our mission to reduce costs and increase revenues for nonprofits by
-            providing:
-          </p>
+          <p>Donations support our mission to transform grief into action by providing:</p>
           <ul>
-            <li>Free domain registration and hosting services</li>
-            <li>Technology consultation and support</li>
-            <li>Volunteer coordination and training</li>
+            <li>School presentations on the dangers of fentanyl</li>
+            <li>Distribution of life-saving resources in our community</li>
+            <li>Support networks for families impacted by the opioid crisis</li>
             <li>Administrative costs necessary to operate our programs</li>
           </ul>
 
@@ -78,12 +85,13 @@ export default function DonationPolicy() {
           </h2>
           <p>For questions about donations or this policy, please contact us at:</p>
           <p>
-            Email:{' '}
-            <a href="mailto:clarkemoyer@freeforcharity.org" className="text-primary underline">
-              clarkemoyer@freeforcharity.org
-            </a>
-            <br />
-            Phone: (520) 222-8104
+            Email: <ContactEmail className="text-primary underline" />
+            {phone && (
+              <>
+                <br />
+                Phone: {phone.display}
+              </>
+            )}
           </p>
         </div>
       </div>

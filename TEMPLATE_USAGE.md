@@ -25,8 +25,8 @@ Use this checklist to track your progress when setting up a new repository from 
 
 - [ ] Create repository from template on GitHub
 - [ ] Clone repository locally
-- [ ] Run `npm install` to verify dependencies install correctly
-- [ ] Run `npm run build` to verify the site builds successfully
+- [ ] Run `pnpm install` to verify dependencies install correctly
+- [ ] Run `pnpm run build` to verify the site builds successfully
 - [ ] Enable GitHub Pages in repository settings
 - [ ] Configure custom domain (if applicable)
 - [ ] Enable Dependabot alerts and security updates
@@ -96,10 +96,10 @@ cd YOUR-REPO-NAME
 node --version
 
 # Install dependencies
-npm install
+pnpm install
 
 # Verify the site builds
-npm run build
+pnpm run build
 ```
 
 ### Step 3: Initial Verification
@@ -108,16 +108,16 @@ Run these commands to ensure everything works:
 
 ```bash
 # Run linting (expect 16 warnings - see README.md for details)
-npm run lint
+pnpm run lint
 
 # Run unit tests
-npm test
+pnpm test
 
 # Build the site
-npm run build
+pnpm run build
 
 # Preview the built site
-npm run preview
+pnpm run preview
 # Visit http://localhost:3000
 ```
 
@@ -488,8 +488,8 @@ The template includes a FUNDING.yml file for GitHub Sponsors button:
 ```yaml
 github: FreeForCharity
 custom:
-  - 'https://ffcworkingsite1.org'
-  - 'https://ffcworkingsite1.org/#donate'
+  - 'https://thecoreyvmoorejrinitiative.org'
+  - 'https://thecoreyvmoorejrinitiative.org/#donate'
 ```
 
 **To customize**:
@@ -549,7 +549,7 @@ The template works great with preview deployment services:
 2. Connect your GitHub repository
 3. Configure build settings:
    - **Framework preset**: Next.js (Static HTML Export)
-   - **Build command**: `npm run build`
+   - **Build command**: `pnpm run build`
    - **Build output directory**: `out`
    - **Environment variables**: Leave `NEXT_PUBLIC_BASE_PATH` empty
 4. Enable "Automatic preview deployments"
@@ -565,7 +565,7 @@ The template works great with preview deployment services:
 2. Import your GitHub repository
 3. Configure:
    - **Framework Preset**: Next.js
-   - **Build Command**: `npm run build`
+   - **Build Command**: `pnpm run build`
    - **Output Directory**: `out`
 4. Deploy
 
@@ -635,10 +635,10 @@ grep -r "Free For Charity" . --exclude-dir=node_modules --exclude-dir=.git
 grep -r "46-2471893" . --exclude-dir=node_modules --exclude-dir=.git
 ```
 
-**Domain**: "ffcworkingsite1.org" → "yourwebsite.org"
+**Domain**: "thecoreyvmoorejrinitiative.org" → "yourwebsite.org"
 
 ```bash
-grep -r "ffcworkingsite1.org" . --exclude-dir=node_modules --exclude-dir=.git
+grep -r "thecoreyvmoorejrinitiative.org" . --exclude-dir=node_modules --exclude-dir=.git
 ```
 
 **Social media links**: Update `siteConfig.social` in `src/lib/site.config.ts`
@@ -746,8 +746,8 @@ Review and customize:
 
 **Solution**:
 
-1. Run `npm run format` locally to fix formatting issues
-2. Run `npm run lint` locally to see full error details
+1. Run `pnpm run format` locally to fix formatting issues
+2. Run `pnpm run lint` locally to see full error details
 3. Commit formatting fixes and push
 
 ### Dependabot Issues
@@ -902,7 +902,7 @@ The issue mentions "reducing the number of settings that need to occur." Here ar
    - Automated search-and-replace across all files
    - Generates checklist of remaining manual customizations (logos, team photos, FAQs, testimonials)
    - Validates that all placeholders have been replaced
-   - Example usage: `npm run customize-for-charity`
+   - Example usage: `pnpm run customize-for-charity`
 
 ### Reducing Manual Steps for New Charity Customization
 
@@ -914,7 +914,7 @@ After completing the "Rebrand Template To A New Brand" issue with all required i
 
 - Organization name replacement: "Free For Charity" → Your charity name
 - EIN replacement: "46-2471893" → Your EIN
-- Domain replacement: "ffcworkingsite1.org" → Your domain
+- Domain replacement: "thecoreyvmoorejrinitiative.org" → Your domain
 - Contact email updates: Multiple files with contact information
 - Social media links: Footer and other components
 - CODEOWNERS updates: GitHub usernames
@@ -926,7 +926,7 @@ After completing the "Rebrand Template To A New Brand" issue with all required i
 Based on the information in issue #[number], update all instances of:
 - "Free For Charity" to "[New Org Name]"
 - "46-2471893" to "[New EIN]"
-- "ffcworkingsite1.org" to "[new-domain.org]"
+- "thecoreyvmoorejrinitiative.org" to "[new-domain.org]"
 - Update CODEOWNERS with @[username1], @[username2]
 - Update NEXT_PUBLIC_BASE_PATH in both workflow files to /[new-repo-name]
 - Update all social media links in footer components
@@ -961,7 +961,7 @@ These cannot be automated by AI and require manual work:
 
 5. **Review and Test** (manual verification)
    - Verify all changes are correct
-   - Test site locally with `npm run dev`
+   - Test site locally with `pnpm run dev`
    - **Time estimate: 15-30 minutes**
 
 **Total Time with AI Assistance: 35-70 minutes** (vs. 8-12 hours fully manual)

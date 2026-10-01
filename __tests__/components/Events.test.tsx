@@ -1,20 +1,17 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Events from '@/components/home-page/Events'
 import { siteConfig } from '@/lib/site.config'
 
 describe('Events component', () => {
-  it('renders the section heading', () => {
-    render(<Events />)
-    expect(screen.getByRole('heading', { name: 'Upcoming Events' })).toBeInTheDocument()
-  })
-
-  it('renders the SociableKit events iframe from siteConfig with safe attributes', () => {
-    render(<Events />)
-    const iframe = screen.getByTitle('Facebook Events')
-    expect(iframe).toBeInTheDocument()
-    expect(iframe.getAttribute('src')).toBe(siteConfig.integrations.sociableKitEventsWidgetUrl)
-    expect(iframe.getAttribute('loading')).toBe('lazy')
-    expect(iframe.getAttribute('sandbox')).toContain('allow-scripts')
+  // This site has no SociableKit events widget configured yet, so the
+  // component renders nothing. When a widget URL is added to
+  // siteConfig.integrations.sociableKitEventsWidgetUrl the section (heading +
+  // sandboxed lazy iframe) renders again — restore the template's iframe
+  // assertions at that point.
+  it('renders nothing while no events widget URL is configured', () => {
+    expect(siteConfig.integrations.sociableKitEventsWidgetUrl).toBe('')
+    const { container } = render(<Events />)
+    expect(container).toBeEmptyDOMElement()
   })
 })

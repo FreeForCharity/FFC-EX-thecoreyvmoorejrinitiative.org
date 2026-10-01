@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema'
 import { pageMetadata } from '@/lib/page-metadata'
+import { ContactDetails } from '@/components/ui/ContactDetails'
+import { siteConfig } from '@/lib/site.config'
 
 const PAGE_NAME = 'Privacy Policy'
 const CANONICAL_PATH = '/privacy-policy'
@@ -9,7 +11,8 @@ const CANONICAL_PATH = '/privacy-policy'
 // per-page OG/Twitter handling is documented in src/lib/page-metadata.ts.
 export const metadata: Metadata = pageMetadata({
   title: PAGE_NAME,
-  description: 'Privacy Policy for Free For Charity website',
+  description:
+    'Privacy Policy for The Corey V. Moore Jr. Initiative for Fentanyl Awareness website',
   canonical: CANONICAL_PATH,
 })
 
@@ -32,10 +35,11 @@ export default function PrivacyPolicy() {
             <strong>1. Introduction</strong>
           </h2>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            At Free for Charity, accessible from https://freeforcharity.org, your privacy is one of
-            our primary concerns. This Privacy Policy document contains types of information we
-            collect and record, and how we use it. By using our website, you hereby consent to our
-            Privacy Policy and agree to its terms.
+            At The Corey V. Moore Jr. Initiative for Fentanyl Awareness, accessible from
+            https://thecoreyvmoorejrinitiative.org, your privacy is one of our primary concerns.
+            This Privacy Policy document contains types of information we collect and record, and
+            how we use it. By using our website, you hereby consent to our Privacy Policy and agree
+            to its terms.
           </p>
 
           {/* Section 2 */}
@@ -43,7 +47,7 @@ export default function PrivacyPolicy() {
             <strong>2. Who We Are</strong>
           </h2>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            Our website address is: https://freeforcharity.org
+            Our website address is: https://thecoreyvmoorejrinitiative.org
           </p>
 
           {/* Section 3 */}
@@ -151,7 +155,7 @@ export default function PrivacyPolicy() {
             <li className="text-[14px] text-[#666] leading-[24px] font-[500]">
               <strong>Additional Third-Party Services:</strong> Microsoft Forms may use additional
               services (including HubSpot) for form analytics and feedback collection. These are
-              controlled by Microsoft, not Free For Charity.
+              controlled by Microsoft, not The Corey V. Moore Jr. Initiative for Fentanyl Awareness.
             </li>
             <li className="text-[14px] text-[#666] leading-[24px] font-[500]">
               <strong>Privacy Policy:</strong> Review Microsoft&apos;s privacy practices at{' '}
@@ -303,7 +307,8 @@ export default function PrivacyPolicy() {
             </li>
           </ul>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            To exercise these rights, please contact us at 520-222-8104.
+            To exercise these rights, please contact us at{' '}
+            <ContactDetails className="text-[#0062CC] underline" />.
           </p>
 
           {/* Section 8 */}
@@ -412,11 +417,7 @@ export default function PrivacyPolicy() {
           </p>
           <ul className="list-inside list-disc space-y-[4px] pb-[1em]">
             <li className="text-[14px] text-[#666] leading-[24px] font-[500]">
-              <strong>Email:</strong>{' '}
-              <a href="mailto:clarkemoyer@freeforcharity.org" className="text-[#0062CC] underline">
-                clarkemoyer@freeforcharity.org
-              </a>{' '}
-              520-222-8104
+              <strong>Email:</strong> <ContactDetails className="text-[#0062CC] underline" />
             </li>
           </ul>
 
@@ -426,21 +427,13 @@ export default function PrivacyPolicy() {
           </h2>
 
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            <strong>14.1. Data Protection Officer</strong>
+            <strong>14.1. Privacy Contact</strong>
           </p>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            We have appointed a Data Protection Officer (DPO) responsible for overseeing questions
-            in relation to this Privacy Policy:
+            Questions about this Privacy Policy, or about how {siteConfig.name} handles your
+            personal information, can be sent to{' '}
+            <ContactDetails className="text-[#0062CC] underline" />.
           </p>
-          <ul className="list-inside list-disc space-y-[4px] pb-[1em]">
-            <li className="text-[14px] text-[#666] leading-[24px] font-[500]">
-              <strong>Contact DPO:</strong> Clarke Moyer{' '}
-              <a href="mailto:clarkemoyer@freeforcharity.org" className="text-[#0062CC] underline">
-                clarkemoyer@freeforcharity.org
-              </a>{' '}
-              520-222-8104
-            </li>
-          </ul>
 
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[700] mt-[1.5em]">
             Your trust matters to us, and we are committed to protecting your personal information

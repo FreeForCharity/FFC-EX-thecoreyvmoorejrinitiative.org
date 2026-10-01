@@ -1,6 +1,8 @@
 import { test, expect, type Page } from '@playwright/test'
 import { testConfig } from './test.config'
 
+// SKIPPED — This site has no mission video (the click-to-play facade was removed in the order-793 rebrand).
+
 /**
  * Mission Video Tests
  *
@@ -28,7 +30,7 @@ async function activateMissionVideo(page: Page) {
   }).toPass()
 }
 
-test.describe('Mission Video', () => {
+test.describe.skip('Mission Video', () => {
   test('should show the click-to-play facade without loading the video', async ({ page }) => {
     await page.goto('/')
 

@@ -2,6 +2,10 @@ import React from 'react'
 import { siteConfig } from '@/lib/site.config'
 
 const Events = () => {
+  // No events widget configured for this site yet — render nothing.
+  if (!siteConfig.integrations.sociableKitEventsWidgetUrl) return null
+  // The charity's own Facebook page, if it has one (never the template's).
+  const facebookUrl = siteConfig.social.find((s) => s.label === 'Facebook')?.href.trim() ?? ''
   return (
     <div id="events" className="py-[52px]">
       <div className="w-[90%] mx-auto max-w-[1280px]">
@@ -36,18 +40,20 @@ const Events = () => {
           </div>
         </div>
 
-        <div className="text-center mt-8">
-          <p className="text-[18px] font-[400] text-gray-600 lato-font">
-            <a
-              href="https://www.facebook.com/freeforcharity"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#227AB5] underline"
-            >
-              View all events on Facebook
-            </a>
-          </p>
-        </div>
+        {facebookUrl && (
+          <div className="text-center mt-8">
+            <p className="text-[18px] font-[400] text-gray-600 lato-font">
+              <a
+                href={facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#227AB5] underline"
+              >
+                View all events on Facebook
+              </a>
+            </p>
+          </div>
+        )}
       </div>
 
       <div className="w-[95%] mt-[50px] mx-auto border border-[#2B627B]"></div>

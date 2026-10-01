@@ -101,7 +101,7 @@ Comprehensive tests are available in `tests/google-tag-manager.spec.ts`:
 
 ```bash
 # Run GTM tests
-npm run test:e2e -- tests/google-tag-manager.spec.ts
+pnpm run test:e2e tests/google-tag-manager.spec.ts
 ```
 
 Test coverage includes:
@@ -118,7 +118,7 @@ Test coverage includes:
 
 The site automatically deploys to GitHub Pages via `.github/workflows/nextjs.yml`. The GTM implementation works on both:
 
-1. **Custom domain**: https://www.ffcworkingsite1.org
+1. **Custom domain**: https://www.thecoreyvmoorejrinitiative.org
 2. **GitHub Pages**: https://freeforcharity.github.io/FFC_Single_Page_Template/
 
 The GTM ID is hardcoded in the component, so no additional configuration is needed for deployment.
@@ -129,7 +129,7 @@ To test GTM locally:
 
 ```bash
 # Start development server
-npm run dev
+pnpm run dev
 ```
 
 The GTM script will load automatically with the configured GTM ID.
