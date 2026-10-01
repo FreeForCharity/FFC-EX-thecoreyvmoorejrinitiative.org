@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema'
 import { pageMetadata } from '@/lib/page-metadata'
+import { ContactEmail } from '@/components/ui/ContactDetails'
+import { PENDING_TEXT, isPending, publishedPhone, siteConfig } from '@/lib/site.config'
 
 const PAGE_NAME = 'Donation Policy'
 const CANONICAL_PATH = '/donation-policy'
@@ -15,6 +17,11 @@ export const metadata: Metadata = pageMetadata({
 })
 
 export default function DonationPolicy() {
+  const phone = publishedPhone()
+  // The EIN clause: the EIN itself, the pending placeholder while the charity
+  // has not supplied it, or nothing when it has none (see PendingField).
+  const ein = siteConfig.ein.trim()
+  const einClause = isPending('ein') ? ` (EIN: ${PENDING_TEXT})` : ein ? ` (EIN: ${ein})` : ''
   return (
     <div className="ffc-container py-16">
       <BreadcrumbSchema name={PAGE_NAME} path={CANONICAL_PATH} />
@@ -32,12 +39,10 @@ export default function DonationPolicy() {
             Tax Deductibility
           </h2>
           <p>
-            The Corey V. Moore Jr. Initiative for Fentanyl Awareness Inc. is a pre-501(c)(3)
-            nonprofit working toward its federal tax-exempt designation. While that application is
-            in progress, donations made through this site are processed by our fiscal sponsor — a
-            qualified 501(c)(3) nonprofit organization named in the &ldquo;Supported by&rdquo;
-            credit in the footer — through its endowment program. Consult your tax advisor about the
-            deductibility of your donation.
+            {siteConfig.name}
+            {einClause} has not yet received IRS recognition as a 501(c)(3) organization, so
+            donations may not be tax-deductible. Please consult a tax advisor before claiming a
+            deduction.
           </p>
 
           <h2 className="font-[var(--font-faustina)] text-[32px] leading-[40px] mt-8 mb-4">
@@ -80,12 +85,13 @@ export default function DonationPolicy() {
           </h2>
           <p>For questions about donations or this policy, please contact us at:</p>
           <p>
-            Email:{' '}
-            <a href="mailto:info@thecoreyvmoorejrinitiative.org" className="text-primary underline">
-              info@thecoreyvmoorejrinitiative.org
-            </a>
-            <br />
-            Phone: (656) 233-4338
+            Email: <ContactEmail className="text-primary underline" />
+            {phone && (
+              <>
+                <br />
+                Phone: {phone.display}
+              </>
+            )}
           </p>
         </div>
       </div>

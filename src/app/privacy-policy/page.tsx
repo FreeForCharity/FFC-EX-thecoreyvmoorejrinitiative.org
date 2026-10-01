@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema'
 import { pageMetadata } from '@/lib/page-metadata'
+import { ContactDetails } from '@/components/ui/ContactDetails'
+import { siteConfig } from '@/lib/site.config'
 
 const PAGE_NAME = 'Privacy Policy'
 const CANONICAL_PATH = '/privacy-policy'
@@ -305,7 +307,8 @@ export default function PrivacyPolicy() {
             </li>
           </ul>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            To exercise these rights, please contact us at 656-233-4338.
+            To exercise these rights, please contact us at{' '}
+            <ContactDetails className="text-[#0062CC] underline" />.
           </p>
 
           {/* Section 8 */}
@@ -414,14 +417,7 @@ export default function PrivacyPolicy() {
           </p>
           <ul className="list-inside list-disc space-y-[4px] pb-[1em]">
             <li className="text-[14px] text-[#666] leading-[24px] font-[500]">
-              <strong>Email:</strong>{' '}
-              <a
-                href="mailto:info@thecoreyvmoorejrinitiative.org"
-                className="text-[#0062CC] underline"
-              >
-                info@thecoreyvmoorejrinitiative.org
-              </a>{' '}
-              656-233-4338
+              <strong>Email:</strong> <ContactDetails className="text-[#0062CC] underline" />
             </li>
           </ul>
 
@@ -431,24 +427,13 @@ export default function PrivacyPolicy() {
           </h2>
 
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            <strong>14.1. Data Protection Officer</strong>
+            <strong>14.1. Privacy Contact</strong>
           </p>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            We have appointed a Data Protection Officer (DPO) responsible for overseeing questions
-            in relation to this Privacy Policy:
+            Questions about this Privacy Policy, or about how {siteConfig.name} handles your
+            personal information, can be sent to{' '}
+            <ContactDetails className="text-[#0062CC] underline" />.
           </p>
-          <ul className="list-inside list-disc space-y-[4px] pb-[1em]">
-            <li className="text-[14px] text-[#666] leading-[24px] font-[500]">
-              <strong>Contact DPO:</strong> Clarke Moyer{' '}
-              <a
-                href="mailto:info@thecoreyvmoorejrinitiative.org"
-                className="text-[#0062CC] underline"
-              >
-                info@thecoreyvmoorejrinitiative.org
-              </a>{' '}
-              656-233-4338
-            </li>
-          </ul>
 
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[700] mt-[1.5em]">
             Your trust matters to us, and we are committed to protecting your personal information

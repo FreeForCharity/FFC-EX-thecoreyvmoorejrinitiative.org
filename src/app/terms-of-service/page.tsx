@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema'
 import { pageMetadata } from '@/lib/page-metadata'
+import { ContactEmail } from '@/components/ui/ContactDetails'
+import { publishedPhone } from '@/lib/site.config'
 
 const PAGE_NAME = 'Terms of Service'
 const CANONICAL_PATH = '/terms-of-service'
@@ -15,6 +17,7 @@ export const metadata: Metadata = pageMetadata({
 })
 
 export default function TermsOfService() {
+  const phone = publishedPhone()
   return (
     <div className="pt-[130px] pb-[54px]">
       <BreadcrumbSchema name={PAGE_NAME} path={CANONICAL_PATH} />
@@ -251,17 +254,13 @@ export default function TermsOfService() {
             The Corey V. Moore Jr. Initiative for Fentanyl Awareness
           </p>
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            Email:{' '}
-            <a
-              href="mailto:info@thecoreyvmoorejrinitiative.org"
-              className="text-[#0062CC] underline"
-            >
-              info@thecoreyvmoorejrinitiative.org
-            </a>
+            Email: <ContactEmail className="text-[#0062CC] underline" />
           </p>
-          <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
-            Phone: 656-233-4338
-          </p>
+          {phone && (
+            <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
+              Phone: {phone.display}
+            </p>
+          )}
           <p className="text-[14px] text-[#666] pb-[10px] leading-[24px] font-[500]">
             Thank you for supporting The Corey V. Moore Jr. Initiative for Fentanyl Awareness and
             for complying with these Terms of Service.
